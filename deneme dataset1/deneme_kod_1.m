@@ -14,15 +14,13 @@ function results = myimfcn(im)
 %
 %--------------------------------------------------------------------------
 
-
-
 % Replace the sample below with your code----------------------------------
 g = double(im); % Normalized Image % Normalized Image
 n = double(im.*2);
 c = 0.20; % Constant
 l = c*log(1 + (g)); % Log Transform
-a= edge(g,'Canny',0.2,3);
-b=edge(g,'Canny');
+a= edge(n,'Canny',0.15,3);
+b=edge(n,'Canny');
 
 
 results.l =l;
@@ -31,6 +29,19 @@ results.g =g;
 results.a =a;
 results.b =b;
 
+
+f1 = imfill(b,'holes');
+se = strel('line',11,0);
+se0 = strel('line',11,90);
+
+d1 = imdilate(a,[se se0]);
+f2 = imfill(d1, 'holes');
+e = imerode(f2,[se se0]);
+
+results.d1 =d1;
+results.e =e;
+results.f2 =f2;
+results.f1 =f1;
 
 %-------------
 

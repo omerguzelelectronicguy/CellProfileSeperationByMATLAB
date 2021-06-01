@@ -16,26 +16,17 @@ results.g =g;
 results.a =a;
 results.b =b;
 
+f1 = imfill(a,'holes');
+se = strel('line',11,90);
+se0 = strel('line',11,0);
+
+d1 = imdilate(a,se);
+e = imerode(BWdil,se);
+f2 = imfill(erodeBW, 'holes');
+
+results.d1 =d1;
+results.e =e;
+results.f2 =f2;
+results.f1 =f1;
 
 %-------------
-
-X=l;
-[xx,yy] = size(X);
-for i=1:xx
-    for j = 1:yy
-        if X(i,j) < 1.20
-            X(i,j)=0;
-        end
-    end
-end
-
-figure
-imshow(n, [0 255])
-
-figure
-surf(X);xlabel('x axis');ylabel('y axis');zlabel('intensity');
-hold on 
-image(X,'CDataMapping','scaled')
-
-rng(1); % For reproducibility
-[idx,C] = kmeans(X,8);
