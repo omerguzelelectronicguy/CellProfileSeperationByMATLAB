@@ -35,6 +35,7 @@ plot(centroids(:,1), centroids(:,2), 'b*')
 hold off
 cluster=3;
 im11=255/3.*imsegkmeans(uint8(im3),cluster);
+
 res.cent=centroids;
 res.b=im;
 res.c=im2;
