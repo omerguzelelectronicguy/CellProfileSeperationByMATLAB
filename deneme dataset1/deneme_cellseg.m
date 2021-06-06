@@ -30,7 +30,7 @@ overlay2 = imoverlay(I_eq, bw4_perim | mask_em, [.3 1 .3]);
 I_eq_c = imcomplement(I_eq);
 I_mod = imimposemin(I_eq_c, ~bw4 | mask_em);
 L = watershed(I_mod);
-
+rgb =label2rgb(L);
 s  = regionprops(L, 'basic');
 centroids = cat(1, s.Centroid);
 imshow(l)
@@ -41,7 +41,7 @@ hold off
 
 results.ol =overlay2;
 results.L =I_mod;
-results.rgb =label2rgb(L);
+results.rgb =rgb;
 results.masked =imextendedmax(I_eq, 5);
 results.imm =im;
 
