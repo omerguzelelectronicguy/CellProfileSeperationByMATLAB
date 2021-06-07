@@ -3,10 +3,11 @@ r=im(:,:,1);
 g=im(:,:,2);
 b=im(:,:,3);
 [m,n]=size(r);
+[bgred, bggreen, bgblue]=find_background(im);
 A = 1:3;
 for i=1:m
     for j=1:n   
-        if (r(i,j)==0)&&(g(i,j)==0)&&(b(i,j)==255)
+        if (r(i,j)==bgred)&&(g(i,j)==bggreen)&&(b(i,j)==bgblue)
             %nothing
         else
             p=0;
