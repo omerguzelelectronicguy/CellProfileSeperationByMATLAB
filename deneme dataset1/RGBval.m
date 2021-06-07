@@ -6,7 +6,7 @@ b=im(:,:,3);
 A = 1:3;
 for i=1:m
     for j=1:n   
-        if (r(i,j)==0)&&(g(i,j)==0)&&(b(i,j)==130)
+        if (r(i,j)==0)&&(g(i,j)==0)&&(b(i,j)==255)
             %nothing
         else
             p=0;
@@ -24,7 +24,7 @@ for i=1:m
         end
     end
 end
-RGBvaluesofImage = A;
+RGBvaluesofImage = A(3:end,:);
 
 
 
