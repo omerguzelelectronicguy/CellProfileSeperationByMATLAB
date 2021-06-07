@@ -1,4 +1,4 @@
-function results = myimfcn(im)
+function results = deneme_cellseg(im)
 g = double(im); % Normalized Image
 n = double(im.*2);
 c = 0.20; % Constant
