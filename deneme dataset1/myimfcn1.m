@@ -50,6 +50,7 @@ res.k=im10;
 res.l=im11;
 
 end
+% imbinarize da güzel bir kardeşimiz
 %% Possible Alternative
 % [centers, radii, metric] = imfindcircles(im3,[5 20]);
 % centersStrong5 = centers(1:5,:);
