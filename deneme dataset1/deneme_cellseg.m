@@ -3,10 +3,9 @@ function results = deneme_cellseg(im)
 im = medfilt2(im, [5 5]);
 
 I_eq = adapthisteq(im); %
-bw = im2bw(I_eq, graythresh(I_eq)-0.085);
+bw = im2bw(I_eq, graythresh(I_eq)-0.07);
 
-bw2 = imfill(bw,'holes');
-bw3 = imopen(bw2, ones(3,3)); %open image morphologically
+bw3 = imopen(bw, ones(3,3)); %open image morphologically
 bw4_perim = bwperim(bw3);  %find perimeters of objects 
 overlay1 = imoverlay(I_eq, bw4_perim , [.5 1 .2]); %not necessary now
 
@@ -25,9 +24,5 @@ results.ol =overlay1;
 results.L =I_mod;
 results.rgb =rgb;
 results.masked =imextendedmax(I_eq, 5);
-results.imm =im;
-%-------------
-
-[row, col] = find(all(im == permute([0 0 255], [1 3 2]), 3));
-
-%--------------------------------------------------------------------------
+results.imm =I_eq;
+end
