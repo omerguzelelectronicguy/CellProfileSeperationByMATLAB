@@ -31,13 +31,6 @@ I_eq_c = imcomplement(I_eq);
 I_mod = imimposemin(I_eq_c, ~bw4 | mask_em);
 L = watershed(I_mod);
 rgb =label2rgb(L);
-s  = regionprops(L, 'basic');
-centroids = cat(1, s.Centroid);
-imshow(l)
-hold on
-plot(centroids(:,1), centroids(:,2), 'b*')
-hold off
-
 
 results.ol =overlay2;
 results.L =I_mod;
