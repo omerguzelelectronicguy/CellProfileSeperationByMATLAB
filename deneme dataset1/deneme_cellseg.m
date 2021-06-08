@@ -3,13 +3,16 @@ function results = deneme_cellseg(im)
 im = medfilt2(im, [5 5]);
 
 I_eq = adapthisteq(im); %
-bw = im2bw(I_eq, graythresh(I_eq)-0.1);
+bw = im2bw(I_eq, graythresh(I_eq)-0.085);
+
 bw2 = imfill(bw,'holes');
 bw3 = imopen(bw2, ones(3,3)); %open image morphologically
 bw4_perim = bwperim(bw3);  %find perimeters of objects 
 overlay1 = imoverlay(I_eq, bw4_perim , [.5 1 .2]); %not necessary now
-mask_em = imextendedmax(I_eq, 17);
+
+mask_em = imextendedmax(I_eq, 20);
 mask_em = imclose(mask_em, ones(5,5));
+
 mask_em = imfill(mask_em, 'holes');
 mask_em = bwareaopen(mask_em, 20);
 
