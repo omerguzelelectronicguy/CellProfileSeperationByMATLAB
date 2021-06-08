@@ -8,6 +8,7 @@ bw = im2bw(I_eq, graythresh(I_eq)-0.07);
 bw3 = imopen(bw, ones(3,3)); %open image morphologically
 bw4_perim = bwperim(bw3);  %find perimeters of objects 
 overlay1 = imoverlay(I_eq, bw4_perim , [.5 1 .2]); %not necessary now
+
 mask_em = imextendedmax(I_eq, 17);
 mask_em = imclose(mask_em, ones(5,5));
 I_eq_c = imcomplement(I_eq); % computes the complement of the image 
