@@ -1,5 +1,5 @@
 function results = deneme_cellseg(im)
-im=im(640:1040,992:1392,:);%400*400
+%im=im(1:500,1:500,:);
 im = medfilt2(im, [5 5]);
 
 I_eq = adapthisteq(im); %
@@ -11,14 +11,18 @@ overlay1 = imoverlay(I_eq, bw4_perim , [.5 1 .2]); %not necessary now
 
 mask_em = imextendedmax(I_eq, 35);
 mask_em = imclose(mask_em, ones(5,5));
+
+mask_em = imfill(mask_em, 'holes');
+mask_em = bwareaopen(mask_em, 20);
+
 I_eq_c = imcomplement(I_eq); % computes the complement of the image 
 I_mod = imimposemin(I_eq_c, ~bw3 | mask_em);
 L = watershed(I_mod);
 rgb =label2rgb(L);
 
 results.ol =overlay1;
-results.impose =I_mod;
+results.L =I_mod;
 results.rgb =rgb;
-results.masked =imextendedmax(I_eq, 17);
-results.L =L;
+results.masked =imextendedmax(I_eq, 5);
+results.imm =I_eq;
 end

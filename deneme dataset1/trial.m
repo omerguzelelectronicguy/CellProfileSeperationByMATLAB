@@ -31,6 +31,7 @@ for i=1:k
         lab(i)=1;
     else
         plot(xg,yg,'r*')
+        lab(i)=0;
     end
 end
     
