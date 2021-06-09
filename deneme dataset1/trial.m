@@ -1,9 +1,6 @@
 clc; clear;
-%load('theta_params.mat');
 im = imread('ADSASS092408-GHAD2-D6-20x_A01_s2_w102757319-E524-42CB-9884-F1608FFBD7EF.png');
-%im=imread('E01_s8.png');
 imorigin=im;
-%im=rgb2gray(imorigin);
 im=imadjust(im,[10/255 70/255]);
 im=imsharpen(im);
 %re = deneme_cellseg(im,0.15,25);%  this is for labeled image.

@@ -1,4 +1,5 @@
-clear; close all; clc;
+clearvars -except pos;
+clc;
 load('featuresandlabels2.mat');% it must be changed to see other data.
 X=features(:,[1 2]);
 y=features(:,3);
