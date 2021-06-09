@@ -1,5 +1,5 @@
 clear; close all; clc;
-load('FeaturesandLabels.mat');
+load('featuresandlabels2.mat');% it must be changed to see other data.
 X=features(:,[1 2]);
 y=features(:,3);
 valvalue=100;% this and three od lower lines are updated to see test and training error.
