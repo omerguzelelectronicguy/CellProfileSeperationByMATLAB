@@ -9,7 +9,7 @@ bw3 = imopen(bw, ones(3,3)); %open image morphologically
 bw4_perim = bwperim(bw3);  %find perimeters of objects 
 overlay1 = imoverlay(I_eq, bw4_perim , [.5 1 .2]); %not necessary now
 
-mask_em = imextendedmax(I_eq, 20);
+mask_em = imextendedmax(I_eq, 35);
 mask_em = imclose(mask_em, ones(5,5));
 
 mask_em = imfill(mask_em, 'holes');
