@@ -1,8 +1,8 @@
 function res=myimfcn1(im)
 im = imread('ADSASS092408-GHAD2-D6-20x_A01_s2_w102757319-E524-42CB-9884-F1608FFBD7EF.png');
+im=im(1:200,1:200);
 
-
-imadj=imadjust(im,[10/255 80/255]);
+imadj=imadjust(im,[15/255 70/255]);
 imsha=imsharpen(imadj);
 
 im(find(im<20))=0;
